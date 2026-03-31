@@ -3349,10 +3349,20 @@ html.dark .lesson-mock__arch-connector::after {
   border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
+html.dark .lesson-mock__code {
+  background: rgba(19, 16, 28, 0.98);
+  color: #d6d0e9;
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
 .lesson-mock__code span {
   display: block;
   opacity: 0.88;
   transition: color 0.28s ease, opacity 0.28s ease, transform 0.28s ease;
+}
+
+html.dark .lesson-mock__code span {
+  opacity: 0.72;
 }
 
 /* ── Full Stack: layered stack ── */
