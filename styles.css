@@ -2911,6 +2911,10 @@ html.dark .practice-preview__tags span {
   padding-top: 1rem;
 }
 
+.join-callout__inner {
+  display: block;
+}
+
 .join-callout__content {
   max-width: 42rem;
 }
@@ -2930,6 +2934,23 @@ html.dark .practice-preview__tags span {
   font-size: clamp(1rem, 1.35vw, 1.15rem);
   line-height: 1.6;
   font-weight: var(--weight-body);
+}
+
+.join-callout__button {
+  margin-top: 1.35rem;
+  height: 2.9rem;
+  padding: 0 1.2rem;
+  border-radius: 0.6rem;
+  background: linear-gradient(135deg, #5a4291, #3b2a62);
+  color: #f5f1fb;
+  border: 1px solid rgba(91, 70, 151, 0.28);
+  box-shadow: 0 8px 18px rgba(59, 42, 98, 0.14);
+}
+
+.join-callout__button:hover {
+  background: linear-gradient(135deg, #664ba3, #433071);
+  border-color: rgba(91, 70, 151, 0.36);
+  box-shadow: 0 10px 22px rgba(59, 42, 98, 0.18);
 }
 
 .lesson-story__stage {
@@ -3709,6 +3730,10 @@ html.dark .lesson-card[data-demo-phase="2"] .lesson-mock__arch-node[data-demo-ta
 
   .join-callout {
     margin-top: 4rem;
+  }
+
+  .join-callout__button {
+    margin-top: 1.5rem;
   }
 
   .lesson-story__header {
