@@ -1,0 +1,631 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeetCode</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <svg class="icon-sprite" aria-hidden="true" focusable="false">
+      <symbol id="icon-menu" viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></symbol>
+      <symbol id="icon-x" viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></symbol>
+      <symbol id="icon-arrow-right" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></symbol>
+      <symbol id="icon-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"></path></symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></symbol>
+      <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M12 3a7.5 7.5 0 1 0 9 9A9 9 0 1 1 12 3Z"></path></symbol>
+      <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="4.93" x2="7.05" y2="7.05"></line><line x1="16.95" y1="16.95" x2="19.07" y2="19.07"></line><line x1="16.95" y1="7.05" x2="19.07" y2="4.93"></line><line x1="4.93" y1="19.07" x2="7.05" y2="16.95"></line></symbol>
+      <symbol id="icon-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-12h4v1.9A4.9 4.9 0 0 1 16 8Z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></symbol>
+      <symbol id="icon-twitter" viewBox="0 0 24 24"><path d="M22 5.92c-.74.33-1.54.56-2.38.66a4.15 4.15 0 0 0 1.82-2.29 8.3 8.3 0 0 1-2.63 1.01 4.13 4.13 0 0 0-7.16 2.82c0 .32.04.64.11.94A11.73 11.73 0 0 1 3.16 4.7a4.13 4.13 0 0 0 1.28 5.51 4.08 4.08 0 0 1-1.87-.52v.05A4.14 4.14 0 0 0 5.88 13.8c-.33.09-.67.14-1.03.14-.25 0-.5-.02-.74-.07a4.14 4.14 0 0 0 3.86 2.87A8.29 8.29 0 0 1 2 18.46a11.68 11.68 0 0 0 6.34 1.86c7.61 0 11.77-6.3 11.77-11.76l-.01-.54A8.35 8.35 0 0 0 22 5.92Z"></path></symbol>
+      <symbol id="icon-star" viewBox="0 0 24 24"><polygon points="12 2.8 14.94 8.76 21.52 9.72 16.76 14.36 17.88 20.92 12 17.84 6.12 20.92 7.24 14.36 2.48 9.72 9.06 8.76 12 2.8"></polygon></symbol>
+      <symbol id="icon-tree" viewBox="0 0 24 24"><circle cx="12" cy="3" r="2"/><circle cx="5" cy="11" r="2"/><circle cx="19" cy="11" r="2"/><circle cx="3" cy="20" r="2"/><circle cx="8" cy="20" r="2"/><line x1="11" y1="5" x2="7" y2="9"/><line x1="13" y1="5" x2="17" y2="9"/><line x1="4" y1="13" x2="3" y2="18"/><line x1="6" y1="13" x2="7.5" y2="18"/></symbol>
+      <symbol id="icon-network" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.5"/><circle cx="12" cy="3" r="2"/><circle cx="21" cy="12" r="2"/><circle cx="12" cy="21" r="2"/><circle cx="3" cy="12" r="2"/><line x1="12" y1="9.5" x2="12" y2="5"/><line x1="14.5" y1="12" x2="19" y2="12"/><line x1="12" y1="14.5" x2="12" y2="19"/><line x1="9.5" y1="12" x2="5" y2="12"/></symbol>
+      <symbol id="icon-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+      <symbol id="icon-layers" viewBox="0 0 24 24"><polygon points="12 2 22 8 12 14 2 8"/><polyline points="2 14 12 20 22 14"/><polyline points="2 11 12 17 22 11"/></symbol>
+      <symbol id="icon-boxes" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="6" rx="1.5"/><rect x="13" y="3" width="8" height="6" rx="1.5"/><rect x="8" y="15" width="8" height="6" rx="1.5"/><line x1="11" y1="6" x2="13" y2="6"/><line x1="7" y1="9" x2="12" y2="15"/><line x1="17" y1="9" x2="12" y2="15"/></symbol>
+    </svg>
+
+    <div class="page-shell">
+      <div class="light-orb light-orb--global light-orb--global-a" aria-hidden="true"></div>
+      <div class="light-orb light-orb--global light-orb--global-b" aria-hidden="true"></div>
+      <div class="light-orb light-orb--global light-orb--global-c" aria-hidden="true"></div>
+
+      <nav class="site-nav" data-site-nav>
+        <div class="container site-nav__inner">
+          <div class="site-nav__brand">
+            <a href="#home" class="brand-link glow-text">NeetCode</a>
+          </div>
+          <div class="site-nav__desktop">
+            <a href="#courses" class="site-nav__link">Courses</a>
+            <a href="#practice" class="site-nav__link">Practice</a>
+            <a href="#practice" class="site-nav__link">Roadmap</a>
+            <a href="#courses" class="site-nav__link">Pro</a>
+            <a href="#footer" class="site-nav__link">Sign in</a>
+            <button type="button" class="btn btn-primary">Get Pro</button>
+          </div>
+          <div class="site-nav__mobile-toggle">
+            <button type="button" class="btn btn-ghost btn-icon" data-mobile-menu-toggle aria-expanded="false" aria-controls="mobile-navigation" aria-label="Toggle navigation">
+              <svg class="icon icon--menu" aria-hidden="true"><use href="#icon-menu"></use></svg>
+              <svg class="icon icon--close" aria-hidden="true"><use href="#icon-x"></use></svg>
+            </button>
+          </div>
+        </div>
+        <div id="mobile-navigation" class="site-nav__mobile glass glow-border animate-fade-in" data-mobile-menu hidden>
+          <a href="#courses" class="site-nav__link" data-mobile-menu-close>Courses</a>
+          <a href="#practice" class="site-nav__link" data-mobile-menu-close>Practice</a>
+          <a href="#practice" class="site-nav__link" data-mobile-menu-close>Roadmap</a>
+          <a href="#courses" class="site-nav__link" data-mobile-menu-close>Pro</a>
+          <a href="#footer" class="site-nav__link" data-mobile-menu-close>Sign in</a>
+          <button type="button" class="btn btn-primary btn-block" data-mobile-menu-close>Get Pro</button>
+        </div>
+      </nav>
+
+      <main>
+        <section id="home" class="hero light-grid-bg">
+          <div class="light-orb light-orb--hero light-orb--hero-a" aria-hidden="true"></div>
+          <div class="light-orb light-orb--hero light-orb--hero-b" aria-hidden="true"></div>
+          <div class="light-orb light-orb--hero light-orb--hero-c" aria-hidden="true"></div>
+          <div class="hero__theme-toggle">
+            <button type="button" class="theme-toggle glass glow" data-theme-toggle aria-pressed="false" aria-label="Toggle dark mode">
+              <svg class="icon theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true"><use href="#icon-moon"></use></svg>
+              <svg class="icon theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><use href="#icon-sun"></use></svg>
+            </button>
+          </div>
+          <div class="container hero__container">
+            <div class="hero__content">
+              <h1 class="hero__title hero__title--split"><span class="hero__eyebrow">NeetCode</span><span class="gradient-text glow-text">A Better Way to Prepare</span></h1>
+              <p class="hero__description">Interview roadmaps used by engineers at Google, Meta, OpenAI, and other top tech teams.</p>
+              <div class="hero__actions">
+                <button type="button" class="btn btn-primary">Get Started</button>
+              </div>
+              <div class="hero-demo-wrap">
+                <div class="hero-demo-wrap__glow" aria-hidden="true"></div>
+                <div class="hero-demo glass-card glow-border">
+                  <div class="hero-demo__layout">
+                    <div class="hero-demo__code problem-browser">
+                      <div class="hero-demo__tabs">
+                        <span class="hero-demo__tab hero-demo__tab--active">Question</span>
+                        <span class="hero-demo__tab">Solution</span>
+                        <span class="hero-demo__tab">Submissions</span>
+                      </div>
+                      <div class="hero-demo__header">
+                        <div class="hero-demo__header-group">
+                          <svg class="icon hero-demo__header-icon" aria-hidden="true"><use href="#icon-book"></use></svg>
+                          <span class="hero-demo__header-label">2 Sum</span>
+                        </div>
+                        <span class="hero-difficulty">Easy</span>
+                      </div>
+                      <div class="problem-browser__content">
+                        <h3 class="problem-browser__title">Two Sum</h3>
+                        <p>Given an array of integers <code>nums</code> and an integer <code>target</code>, return indices of the two numbers such that they add up to <code>target</code>.</p>
+                        <div class="problem-browser__example glass-input">
+                          <p><strong>Example 1:</strong></p>
+                          <p>Input: nums = [2, 7, 11, 15], target = 9</p>
+                          <p>Output: [0, 1]</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="hero-demo__assistant code-editor-panel">
+                      <div class="hero-demo__tabs hero-demo__tabs--editor">
+                        <span class="hero-demo__tab hero-demo__tab--active">Python</span>
+                        <span class="hero-demo__tab">Auto</span>
+                        <span class="hero-demo__tab">Run</span>
+                      </div>
+                      <div class="hero-demo__header hero-demo__header--assistant">
+                        <div class="hero-demo__header-group">
+                          <svg class="icon hero-demo__header-icon" aria-hidden="true"><use href="#icon-star"></use></svg>
+                          <span class="hero-demo__assistant-title">Editor</span>
+                        </div>
+                        <span class="code-editor-panel__meta">Ln 1, Col 1</span>
+                      </div>
+                      <div class="code-editor-panel__body">
+                        <ol class="code-editor-panel__lines" aria-hidden="true">
+                          <li>1</li>
+                          <li>2</li>
+                          <li>3</li>
+                          <li>4</li>
+                          <li>5</li>
+                          <li>6</li>
+                          <li>7</li>
+                          <li>8</li>
+                          <li>9</li>
+                        </ol>
+                        <pre class="code-editor-panel__code"><code><span data-typed-output></span><span class="typing-caret" aria-hidden="true"></span></code></pre>
+                      </div>
+                      <script type="application/json" data-typed-source>{
+  "lines": [
+    "class Solution:",
+    "    def twoSum(self, nums, target):",
+    "        seen = {}",
+    "",
+    "        for index, value in enumerate(nums):",
+    "            complement = target - value",
+    "            if complement in seen:",
+    "                return [seen[complement], index]",
+    "            seen[value] = index"
+  ]
+}</script>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="hero-trust animate-on-scroll">
+                <p class="hero-trust__title">Trusted by engineers who landed offers at top companies</p>
+                <div class="company-marquee" aria-label="Companies">
+                  <div class="company-marquee__track">
+                    <div class="company-marquee__group" aria-hidden="false">
+                      <span class="company-logo company-logo--google">
+                        <img src="assets/logos/google.svg" alt="Google">
+                      </span>
+                      <span class="company-logo company-logo--meta">
+                        <img src="assets/logos/meta.svg" alt="Meta">
+                      </span>
+                      <span class="company-logo company-logo--amazon">
+                        <img src="assets/logos/amazon.svg" alt="Amazon">
+                      </span>
+                      <span class="company-logo company-logo--microsoft">
+                        <img src="assets/logos/microsoft.svg" alt="Microsoft">
+                      </span>
+                      <span class="company-logo company-logo--netflix">
+                        <img src="assets/logos/netflix.svg" alt="Netflix">
+                      </span>
+                      <span class="company-logo company-logo--openai">
+                        <img src="assets/logos/openai.svg" alt="OpenAI">
+                      </span>
+                      <span class="company-logo company-logo--anthropic">
+                        <img src="assets/logos/anthropic.svg" alt="Anthropic">
+                      </span>
+                    </div>
+                    <div class="company-marquee__group" aria-hidden="true">
+                      <span class="company-logo company-logo--google">
+                        <img src="assets/logos/google.svg" alt="">
+                      </span>
+                      <span class="company-logo company-logo--meta">
+                        <img src="assets/logos/meta.svg" alt="">
+                      </span>
+                      <span class="company-logo company-logo--amazon">
+                        <img src="assets/logos/amazon.svg" alt="">
+                      </span>
+                      <span class="company-logo company-logo--microsoft">
+                        <img src="assets/logos/microsoft.svg" alt="">
+                      </span>
+                      <span class="company-logo company-logo--netflix">
+                        <img src="assets/logos/netflix.svg" alt="">
+                      </span>
+                      <span class="company-logo company-logo--openai">
+                        <img src="assets/logos/openai.svg" alt="">
+                      </span>
+                      <span class="company-logo company-logo--anthropic">
+                        <img src="assets/logos/anthropic.svg" alt="">
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="testimonials" class="testimonial-section">
+          <div class="container">
+            <div class="section-intro section-intro--testimonial animate-on-scroll"></div>
+            <div class="testimonial-grid testimonial-grid--faces">
+              <article class="testimonial-card testimonial-card--face animate-on-scroll">
+                <div class="testimonial-card__body">
+                  <p class="testimonial-card__quote">I signed my Google offer, and NeetCode played a real part in getting me there.</p>
+                </div>
+                <footer class="testimonial-card__footer">
+                  <img class="testimonial-card__avatar" src="assets/testimonials/amog-google.jpeg" alt="Amog Chandrashekar" loading="lazy">
+                  <div class="testimonial-card__meta">
+                    <p class="testimonial-card__name">Amog Chandrashekar</p>
+                    <p class="testimonial-card__role">Google</p>
+                  </div>
+                </footer>
+              </article>
+              <article class="testimonial-card testimonial-card--face animate-on-scroll">
+                <div class="testimonial-card__body">
+                  <p class="testimonial-card__quote">I landed Microsoft and start next year. Your videos helped a ton.</p>
+                </div>
+                <footer class="testimonial-card__footer">
+                  <img class="testimonial-card__avatar" src="assets/testimonials/rodrigo-microsoft.jpeg" alt="Rodrigo Ramirez" loading="lazy">
+                  <div class="testimonial-card__meta">
+                    <p class="testimonial-card__name">Rodrigo Ramirez</p>
+                    <p class="testimonial-card__role">Microsoft</p>
+                  </div>
+                </footer>
+              </article>
+              <article class="testimonial-card testimonial-card--face animate-on-scroll">
+                <div class="testimonial-card__body">
+                  <p class="testimonial-card__quote">I landed Amazon. Your videos made a huge difference during prep.</p>
+                </div>
+                <footer class="testimonial-card__footer">
+                  <img class="testimonial-card__avatar" src="assets/testimonials/aiswarya-amazon.jpeg" alt="Aiswarya Sukumar" loading="lazy">
+                  <div class="testimonial-card__meta">
+                    <p class="testimonial-card__name">Aiswarya Sukumar</p>
+                    <p class="testimonial-card__role">Amazon</p>
+                  </div>
+                </footer>
+              </article>
+              <article class="testimonial-card testimonial-card--face animate-on-scroll">
+                <div class="testimonial-card__body">
+                  <p class="testimonial-card__quote">I signed at OpenAI. NeetCode was core to my interview prep.</p>
+                </div>
+                <footer class="testimonial-card__footer">
+                  <img class="testimonial-card__avatar" src="assets/testimonials/janvi-openai.jpeg" alt="Janvi Kalra" loading="lazy">
+                  <div class="testimonial-card__meta">
+                    <p class="testimonial-card__name">Janvi Kalra</p>
+                    <p class="testimonial-card__role">OpenAI</p>
+                  </div>
+                </footer>
+              </article>
+              <article class="testimonial-card testimonial-card--face animate-on-scroll">
+                <div class="testimonial-card__body">
+                  <p class="testimonial-card__quote">NeetCode gave me the structure and confidence to land Anthropic.</p>
+                </div>
+                <footer class="testimonial-card__footer">
+                  <img class="testimonial-card__avatar" src="assets/testimonials/thariq-anthropic.jpg" alt="Thariq Shihipar" loading="lazy">
+                  <div class="testimonial-card__meta">
+                    <p class="testimonial-card__name">Thariq Shihipar</p>
+                    <p class="testimonial-card__role">Anthropic</p>
+                  </div>
+                </footer>
+              </article>
+            </div>
+          </div>
+        </section>
+
+
+        <section id="practice" class="cta practice-hub">
+          <div class="container">
+            <div class="practice-hub__shell">
+              <div id="courses" class="practice-hub__anchor" aria-hidden="true"></div>
+              <div class="practice-hub__layout">
+                <div class="practice-hub__preview practice-hub__preview--hero animate-on-scroll" data-roadmap-demo>
+                  <div class="practice-preview practice-preview--hero">
+                    <div class="practice-preview__hero-grid">
+                      <div class="practice-preview__main">
+                        <div class="practice-preview__header practice-preview__header--hero reveal-child reveal-child--2">
+                          <span class="practice-preview__title">Free NeetCode 150</span>
+                          <span class="practice-preview__progress" data-roadmap-progress>0 / 3 completed</span>
+                        </div>
+                        <div class="practice-preview__bar reveal-child reveal-child--3"><span data-roadmap-bar></span></div>
+                        <div class="practice-preview__tags practice-preview__tags--hero reveal-child reveal-child--4">
+                          <span>Arrays &amp; Hashing</span>
+                          <span>Two Pointers</span>
+                          <span>Sliding Window</span>
+                        </div>
+                      </div>
+
+                      <div class="practice-preview__panel reveal-child reveal-child--5">
+                        <ul class="practice-preview__problems practice-preview__problems--hero" aria-hidden="true">
+                          <li class="practice-preview__problem" data-roadmap-task>
+                            <span class="practice-preview__problem-check"><svg viewBox="0 0 10 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 4 7 9 1"></polyline></svg></span>
+                            <span class="practice-preview__problem-name">Two Sum</span>
+                            <span class="problem-diff problem-diff--easy">Easy</span>
+                          </li>
+                          <li class="practice-preview__problem" data-roadmap-task>
+                            <span class="practice-preview__problem-check"><svg viewBox="0 0 10 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 4 7 9 1"></polyline></svg></span>
+                            <span class="practice-preview__problem-name">Valid Parentheses</span>
+                            <span class="problem-diff problem-diff--easy">Easy</span>
+                          </li>
+                          <li class="practice-preview__problem" data-roadmap-task>
+                            <span class="practice-preview__problem-check"><svg viewBox="0 0 10 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 4 7 9 1"></polyline></svg></span>
+                            <span class="practice-preview__problem-name">Longest Substring Without Repeating Characters</span>
+                            <span class="problem-diff problem-diff--medium">Medium</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <section class="lesson-story lesson-story--full" data-lesson-story>
+                  <div class="lesson-story__header">
+                      <div class="lesson-story__counter" data-lesson-counter>1 / 5</div>
+                      <div class="lesson-story__actions">
+                        <button type="button" class="btn btn-secondary lesson-story__nav" data-lesson-prev>Previous</button>
+                        <button type="button" class="btn btn-secondary lesson-story__nav" data-lesson-next>Next</button>
+                      </div>
+                  </div>
+
+                  <div class="lesson-story__pin-row">
+                    <div class="lesson-story__stage-shell">
+                      <div class="lesson-story__stage" data-lesson-stage>
+                          <article class="lesson-card lesson-card--active" data-lesson-slide data-lesson-key="dsa">
+                            <div class="lesson-card__copy">
+                              <p class="lesson-card__category">DSA</p>
+                              <h3 class="lesson-card__title">Algorithms &amp; Data Structures for Beginners</h3>
+                              <p class="lesson-card__description">Build intuition for arrays, trees, graphs, sorting, and search with problem-first visual feedback.</p>
+                              <div class="lesson-card__meta">
+                                <span class="lesson-card__hours">25 hours</span>
+                                <span class="lesson-card__difficulty lesson-card__difficulty--medium">Medium</span>
+                              </div>
+                            </div>
+                            <div class="lesson-card__demo">
+                              <div class="lesson-mock lesson-mock--dsa" data-demo-root>
+                                <div class="lesson-mock__chips"><span>nums = [2, 7, 11, 15]</span><span>target = 9</span></div>
+                                <div class="lesson-mock__dsa-split">
+                                  <div class="lesson-mock__dsa-array-col">
+                                    <p class="lesson-mock__dsa-label">Array scan</p>
+                                    <div class="lesson-mock__array">
+                                      <span class="lesson-mock__cell" data-demo-target="1">2</span>
+                                      <span class="lesson-mock__cell lesson-mock__cell--accent" data-demo-target="2">7</span>
+                                      <span class="lesson-mock__cell">11</span>
+                                      <span class="lesson-mock__cell">15</span>
+                                    </div>
+                                  </div>
+                                  <div class="lesson-mock__dsa-map-col">
+                                    <p class="lesson-mock__dsa-label">Hash map</p>
+                                    <table class="lesson-mock__hashmap">
+                                      <thead><tr><th>key</th><th>idx</th></tr></thead>
+                                      <tbody>
+                                        <tr data-demo-target="1"><td>2</td><td>0</td></tr>
+                                        <tr class="lesson-mock__hashmap-hit" data-demo-target="2"><td>7</td><td>1</td></tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                                <div class="lesson-mock__result" data-demo-result>Match found: indices [0, 1]</div>
+                              </div>
+                              <div class="lesson-card__explanation">
+                                <p class="lesson-card__step-label" data-demo-step-label>Step 1</p>
+                                <p class="lesson-card__step-text is-active" data-demo-explanation="1">Highlight the current value and compute the complement before scanning the rest of the array.</p>
+                                <p class="lesson-card__step-text" data-demo-explanation="2">The hash map instantly resolves the complement, showing why lookup-based strategies beat brute force.</p>
+                              </div>
+                              <button type="button" class="btn btn-text lesson-card__replay" data-demo-replay>Replay demo</button>
+                            </div>
+                          </article>
+
+                          <article class="lesson-card" data-lesson-slide data-lesson-key="system">
+                            <div class="lesson-card__copy">
+                              <p class="lesson-card__category">System Design</p>
+                              <h3 class="lesson-card__title">System Design Interview</h3>
+                              <p class="lesson-card__description">Walk through reusable architecture patterns by tracing real traffic through product-scale systems.</p>
+                              <div class="lesson-card__meta">
+                                <span class="lesson-card__hours">10 hours</span>
+                                <span class="lesson-card__difficulty lesson-card__difficulty--medium">Medium</span>
+                              </div>
+                            </div>
+                            <div class="lesson-card__demo">
+                              <div class="lesson-mock lesson-mock--system" data-demo-root>
+                                <div class="lesson-mock__arch">
+                                  <div class="lesson-mock__arch-tier">
+                                    <span class="lesson-mock__arch-label">Client</span>
+                                    <div class="lesson-mock__arch-node lesson-mock__arch-node--client" data-demo-target="1">Browser</div>
+                                  </div>
+                                  <div class="lesson-mock__arch-connector" aria-hidden="true"></div>
+                                  <div class="lesson-mock__arch-tier">
+                                    <span class="lesson-mock__arch-label">Services</span>
+                                    <div class="lesson-mock__arch-row">
+                                      <div class="lesson-mock__arch-node lesson-mock__arch-node--service">API</div>
+                                      <div class="lesson-mock__arch-node lesson-mock__arch-node--service">Queue</div>
+                                      <div class="lesson-mock__arch-node lesson-mock__arch-node--service">Workers</div>
+                                    </div>
+                                  </div>
+                                  <div class="lesson-mock__arch-connector" aria-hidden="true"></div>
+                                  <div class="lesson-mock__arch-tier">
+                                    <span class="lesson-mock__arch-label">Storage</span>
+                                    <div class="lesson-mock__arch-row">
+                                      <div class="lesson-mock__arch-node lesson-mock__arch-node--cache lesson-mock__arch-node--accent" data-demo-target="2">Cache</div>
+                                      <div class="lesson-mock__arch-node lesson-mock__arch-node--db">DB</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="lesson-mock__result" data-demo-result>Requests route through cache before touching the database.</div>
+                              </div>
+                              <div class="lesson-card__explanation">
+                                <p class="lesson-card__step-label" data-demo-step-label>Step 1</p>
+                                <p class="lesson-card__step-text is-active" data-demo-explanation="1">Trace the request path through the API layer and queue so the system can absorb burst traffic.</p>
+                                <p class="lesson-card__step-text" data-demo-explanation="2">Once the cache is activated, read-heavy traffic bypasses the database and latency drops immediately.</p>
+                              </div>
+                              <button type="button" class="btn btn-text lesson-card__replay" data-demo-replay>Replay demo</button>
+                            </div>
+                          </article>
+
+                          <article class="lesson-card" data-lesson-slide data-lesson-key="python">
+                            <div class="lesson-card__copy">
+                              <p class="lesson-card__category">Python</p>
+                              <h3 class="lesson-card__title">Python for Coding Interviews</h3>
+                              <p class="lesson-card__description">Sharpen built-ins and concise Python patterns with code-level before-and-after demos.</p>
+                              <div class="lesson-card__meta">
+                                <span class="lesson-card__hours">8 hours</span>
+                                <span class="lesson-card__difficulty lesson-card__difficulty--easy">Easy</span>
+                              </div>
+                            </div>
+                            <div class="lesson-card__demo">
+                              <div class="lesson-mock lesson-mock--python" data-demo-root>
+                                <pre class="lesson-mock__code"><code><span>nums = [1, 2, 3, 4]</span>
+<span data-demo-target="1">squares = []</span>
+<span data-demo-target="2">squares = [n * n for n in nums]</span>
+<span data-demo-result>print(squares)  # [1, 4, 9, 16]</span></code></pre>
+                              </div>
+                              <div class="lesson-card__explanation">
+                                <p class="lesson-card__step-label" data-demo-step-label>Step 1</p>
+                                <p class="lesson-card__step-text is-active" data-demo-explanation="1">Highlight the verbose version first so the reader can see the intermediate loop shape.</p>
+                                <p class="lesson-card__step-text" data-demo-explanation="2">Then collapse it into the comprehension to show the interview-friendly Python pattern and final output.</p>
+                              </div>
+                              <button type="button" class="btn btn-text lesson-card__replay" data-demo-replay>Replay demo</button>
+                            </div>
+                          </article>
+
+                          <article class="lesson-card" data-lesson-slide data-lesson-key="fullstack">
+                            <div class="lesson-card__copy">
+                              <p class="lesson-card__category">Full Stack</p>
+                              <h3 class="lesson-card__title">Full Stack Development</h3>
+                              <p class="lesson-card__description">Connect UI interactions, backend routes, and persistence so interview prep feels closer to real product work.</p>
+                              <div class="lesson-card__meta">
+                                <span class="lesson-card__hours">20 hours</span>
+                                <span class="lesson-card__difficulty lesson-card__difficulty--medium">Medium</span>
+                              </div>
+                            </div>
+                            <div class="lesson-card__demo">
+                              <div class="lesson-mock lesson-mock--fullstack" data-demo-root>
+                                <div class="lesson-mock__stack">
+                                  <div class="lesson-mock__stack-layer lesson-mock__stack-layer--fe" data-demo-target="1">
+                                    <span class="lesson-mock__stack-tag">Frontend</span>
+                                    <code class="lesson-mock__stack-hint">fetch('/api/items', { method: 'POST' })</code>
+                                  </div>
+                                  <div class="lesson-mock__stack-pipe" aria-hidden="true"><span>HTTP POST</span></div>
+                                  <div class="lesson-mock__stack-layer lesson-mock__stack-layer--be">
+                                    <span class="lesson-mock__stack-tag">Backend</span>
+                                    <code class="lesson-mock__stack-hint">router.post('/items', handler)</code>
+                                  </div>
+                                  <div class="lesson-mock__stack-pipe" aria-hidden="true"><span>SQL INSERT</span></div>
+                                  <div class="lesson-mock__stack-layer lesson-mock__stack-layer--db lesson-mock__stack-layer--accent" data-demo-target="2">
+                                    <span class="lesson-mock__stack-tag">Database</span>
+                                    <code class="lesson-mock__stack-hint">INSERT INTO items VALUES (...)</code>
+                                  </div>
+                                </div>
+                                <div class="lesson-mock__result" data-demo-result>New record persisted and UI refreshes with fresh data.</div>
+                              </div>
+                              <div class="lesson-card__explanation">
+                                <p class="lesson-card__step-label" data-demo-step-label>Step 1</p>
+                                <p class="lesson-card__step-text is-active" data-demo-explanation="1">Start at the frontend interaction so learners see exactly where the request originates.</p>
+                                <p class="lesson-card__step-text" data-demo-explanation="2">Then highlight the database write to show how the stack connects all the way through to stored state.</p>
+                              </div>
+                              <button type="button" class="btn btn-text lesson-card__replay" data-demo-replay>Replay demo</button>
+                            </div>
+                          </article>
+
+                          <article class="lesson-card" data-lesson-slide data-lesson-key="ood">
+                            <div class="lesson-card__copy">
+                              <p class="lesson-card__category">OOD</p>
+                              <h3 class="lesson-card__title">Object Oriented Design Patterns</h3>
+                              <p class="lesson-card__description">See pattern mechanics in motion instead of static diagrams by stepping through object interactions.</p>
+                              <div class="lesson-card__meta">
+                                <span class="lesson-card__hours">8 hours</span>
+                                <span class="lesson-card__difficulty lesson-card__difficulty--easy">Easy</span>
+                              </div>
+                            </div>
+                            <div class="lesson-card__demo">
+                              <div class="lesson-mock lesson-mock--ood" data-demo-root>
+                                <div class="lesson-mock__uml">
+                                  <div class="lesson-mock__uml-class lesson-mock__uml-class--subject" data-demo-target="1">
+                                    <div class="lesson-mock__uml-name">Subject</div>
+                                    <div class="lesson-mock__uml-sep"></div>
+                                    <div class="lesson-mock__uml-methods">
+                                      <span>attach(obs)</span>
+                                      <span>notify()</span>
+                                    </div>
+                                  </div>
+                                  <div class="lesson-mock__uml-arrows" aria-hidden="true">
+                                    <span class="lesson-mock__uml-arrow"></span>
+                                    <span class="lesson-mock__uml-arrow"></span>
+                                  </div>
+                                  <div class="lesson-mock__uml-observers">
+                                    <div class="lesson-mock__uml-class lesson-mock__uml-class--observer">
+                                      <div class="lesson-mock__uml-name">Observer A</div>
+                                      <div class="lesson-mock__uml-sep"></div>
+                                      <div class="lesson-mock__uml-methods"><span>update()</span></div>
+                                    </div>
+                                    <div class="lesson-mock__uml-class lesson-mock__uml-class--observer lesson-mock__uml-class--accent" data-demo-target="2">
+                                      <div class="lesson-mock__uml-name">Observer B</div>
+                                      <div class="lesson-mock__uml-sep"></div>
+                                      <div class="lesson-mock__uml-methods"><span>update()</span></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="lesson-mock__result" data-demo-result>All observers update after the subject publishes a new state.</div>
+                              </div>
+                              <div class="lesson-card__explanation">
+                                <p class="lesson-card__step-label" data-demo-step-label>Step 1</p>
+                                <p class="lesson-card__step-text is-active" data-demo-explanation="1">Highlight the subject first so the learner can identify the source of truth in the pattern.</p>
+                                <p class="lesson-card__step-text" data-demo-explanation="2">Then trigger the observer update to show how the pattern propagates state without tight coupling.</p>
+                              </div>
+                              <button type="button" class="btn btn-text lesson-card__replay" data-demo-replay>Replay demo</button>
+                            </div>
+                          </article>
+                    </div>
+
+                  </div>
+                </section>
+
+                <section class="join-callout animate-on-scroll" aria-labelledby="join-callout-title">
+                  <div class="join-callout__content">
+                    <h2 id="join-callout-title" class="join-callout__title">Join 1M+ engineers today</h2>
+                    <p class="join-callout__description">Take part in over 1000 practice problems and video explanations.</p>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" class="about-section">
+          <div class="container">
+            <div class="about-card animate-on-scroll">
+              <div class="about-card__grid">
+                <div class="about-card__visual">
+                  <img
+                    class="about-avatar"
+                    src="assets/ns.jpeg"
+                    alt="Navi holding a YouTube creator award"
+                  />
+                </div>
+                <div class="about-card__copy">
+                  <div class="section-intro section-intro--left">
+                    <div class="section-intro__badge section-intro__badge--glass"><span>ABOUT</span></div>
+                    <h2 class="section-intro__title section-intro__title--plain">Hi, I'm Navi</h2>
+                  </div>
+                  <div class="about-timeline">
+                    <div class="about-timeline__item">
+                      <div class="about-timeline__dot" aria-hidden="true"></div>
+                      <p>Started NeetCode in 2020 while unemployed, recording explanations during a difficult interview grind.</p>
+                    </div>
+                    <div class="about-timeline__item">
+                      <div class="about-timeline__dot" aria-hidden="true"></div>
+                      <p>As engineers began landing offers with the videos, the platform grew through word of mouth.</p>
+                    </div>
+                    <div class="about-timeline__item">
+                      <div class="about-timeline__dot" aria-hidden="true"></div>
+                      <p>A year later, landed a role at Google. Today NeetCode helps hundreds of thousands prepare for interviews.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer id="footer" class="site-footer">
+        <div class="container site-footer__container">
+          <div class="site-footer__grid site-footer__grid--links">
+            <div>
+              <h3 class="site-footer__brand"><span class="glow-text">NeetCode</span></h3>
+              <p class="site-footer__body">A better way to prepare for coding interviews.</p>
+            </div>
+            <div>
+              <h3 class="site-footer__heading">Resources</h3>
+              <ul class="site-footer__list">
+                <li><a href="#practice">Blind 75</a></li>
+                <li><a href="#practice">NeetCode 150</a></li>
+                <li><a href="#practice">NeetCode 250</a></li>
+                <li><a href="#courses">How to use NeetCode Effectively</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="site-footer__heading">Social</h3>
+              <ul class="site-footer__list">
+                <li><a href="#" aria-label="YouTube">YouTube</a></li>
+                <li><a href="#" aria-label="LinkedIn">LinkedIn</a></li>
+                <li><a href="#" aria-label="Twitter">Twitter</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="site-footer__heading">Support</h3>
+              <ul class="site-footer__list">
+                <li><a href="mailto:support@neetcode.io">support@neetcode.io</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="site-footer__bottom"><p>(c) 2026 neetcode.io. All rights reserved.</p></div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+
